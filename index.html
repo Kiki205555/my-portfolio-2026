@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anuradha | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F8F7F4;
+  color: #111;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+/* HERO */
+.hero {
+  margin-bottom: 100px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.hero p {
+  margin-top: 20px;
+  max-width: 500px;
+  color: #666;
+  font-size: 18px;
+}
+
+/* SECTION */
+.section {
+  margin-top: 80px;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* CASE CARD */
+.case {
+  background: #fff;
+  padding: 35px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.case:hover {
+  transform: translateY(-6px);
+  border-color: #E8DCCF;
+}
+
+.case h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.case p {
+  color: #666;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.highlight {
+  color: #D9A5A5;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* FULL WIDTH ON MOBILE */
+@media(max-width: 768px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: #E8DCCF;
+  margin: 80px 0;
+}
+
+/* FADE ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero fade">
+  <h1>Hi, I’m Anuradha</h1>
+  <p>
+    I don’t just create content—I try to understand why people connect, what makes them pause, and what actually stays.
+    My work blends strategy, storytelling, and real-world execution.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- WORK -->
+<div class="section">
+  <h2 class="section-title fade">Selected Work</h2>
+
+  <div class="grid">
+
+    <div class="case fade">
+      <h3>Pillsbury — Rakshabandhan</h3>
+      <p><strong>Insight:</strong> Corporate gifting feels transactional.</p>
+      <p>Customized packaging with names and messages to create emotional connection among employees.</p>
+      <p class="highlight">“It wasn’t gifting. It was making someone feel remembered.”</p>
+    </div>
+
+    <div class="case fade">
+      <h3>A2 Milk — Lead Generation</h3>
+      <p><strong>Insight:</strong> Trust drives premium purchases.</p>
+      <p>Built an education-first funnel to move users from awareness to conversion.</p>
+      <p class="highlight">“People don’t buy products. They buy belief.”</p>
+    </div>
+
+    <div class="case fade">
+      <h3>Rice Bran Oil — Activation</h3>
+      <p><strong>Insight:</strong> Health needs to be experienced.</p>
+      <p>Gamified a 5kg lifting challenge to create interaction and recall.</p>
+      <p class="highlight">“If people experience it, they remember it.”</p>
+    </div>
+
+    <div class="case fade">
+      <h3>HP Experience</h3>
+      <p>Created hands-on product setups in corporate parks to build trust through use.</p>
+    </div>
+
+    <div class="case fade">
+      <h3>Digitek — Content</h3>
+      <p>Shifted focus from specs to real-life usage to make products relatable.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CREATIVE THINKING -->
+<div class="section">
+  <h2 class="section-title fade">Creative Thinking</h2>
+
+  <div class="grid">
+
+    <div class="case fade">
+      <h3>Fevicol — Stuck With You</h3>
+      <p><strong>Insight:</strong> Strength is expected. Emotion isn’t.</p>
+      <p>Stop-motion storytelling where objects refuse to leave.</p>
+      <p class="highlight">“Some things stay because they matter.”</p>
+    </div>
+
+    <div class="case fade">
+      <h3>Nykaa — Not Ready Yet</h3>
+      <p><strong>Insight:</strong> People relate to the process.</p>
+      <p>Raw beauty content showing in-between moments instead of perfection.</p>
+    </div>
+
+    <div class="case fade">
+      <h3>Zomato — Order Your Mood</h3>
+      <p><strong>Insight:</strong> Food = emotion, not category.</p>
+      <p>Emotion-based discovery system replacing traditional menus.</p>
+    </div>
+
+    <div class="case fade">
+      <h3>Pepsi — Did It Even Happen?</h3>
+      <p><strong>Insight:</strong> Moments feel real only when recorded.</p>
+      <p>Campaign built on reliving unrecorded experiences.</p>
+    </div>
+
+    <div class="case fade">
+      <h3>Just Herbs — Your Skin, But Calmer</h3>
+      <p><strong>Insight:</strong> Not all skincare is transformation.</p>
+      <p>Minimal storytelling focused on comfort and subtle change.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<div class="fade">
+  <p style="color:#666">
+    I’m interested in building work that people don’t just see—but feel.
+  </p>
+</div>
+
+</div>
+
+</body>
+</html>
