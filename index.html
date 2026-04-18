@@ -3,240 +3,1561 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anuradha | Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<title>Anuradha Tripathi — Content Creator & Marketer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,400;0,9..144,700;1,9..144,200;1,9..144,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F0E8;
+  --bg2:#EDE8DE;
+  --ink:#1C1713;
+  --ink2:#3D3530;
+  --muted:#7A6F66;
+  --accent:#C4622D;
+  --accent2:#E8936A;
+  --gold:#B8973A;
+  --white:#FDFAF5;
+  --border:rgba(28,23,19,0.12);
+  --border2:rgba(28,23,19,0.06);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Instrument Sans',sans-serif;
+  background:var(--bg);color:var(--ink);
+  overflow-x:hidden;
+  cursor:none;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #F8F7F4;
-  color: #111;
+/* CUSTOM CURSOR */
+.cursor{
+  position:fixed;width:10px;height:10px;
+  background:var(--accent);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transition:transform 0.15s ease;
+  mix-blend-mode:multiply;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid var(--accent);border-radius:50%;
+  pointer-events:none;z-index:9998;
+  transition:transform 0.4s ease, opacity 0.3s;
+  opacity:0.5;
 }
 
-/* CONTAINER */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.5rem 3rem;
+  mix-blend-mode:normal;
 }
+.nav-logo{
+  font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;
+  color:var(--ink);text-decoration:none;letter-spacing:0.01em;
+}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{
+  font-size:0.78rem;font-weight:500;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{
+  font-size:0.75rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--white);
+  background:var(--accent);padding:0.6rem 1.4rem;
+  text-decoration:none;transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--ink)}
 
 /* HERO */
-.hero {
-  margin-bottom: 100px;
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  padding:0 3rem 4rem;
+  position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.hero-bg-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Fraunces',serif;
+  font-size:clamp(8rem,18vw,20rem);
+  font-weight:200;font-style:italic;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(28,23,19,0.07);
+  white-space:nowrap;pointer-events:none;
+  line-height:1;letter-spacing:-0.03em;
+  user-select:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.5rem;
+}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--accent)}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:flex-end;gap:3rem;
+}
+.hero-headline{
+  font-family:'Fraunces',serif;
+  font-size:clamp(3rem,7vw,7rem);
+  font-weight:400;line-height:0.95;
+  letter-spacing:-0.02em;color:var(--ink);
+}
+.hero-headline em{
+  font-style:italic;font-weight:200;
+  color:var(--accent);display:block;
+}
+.hero-right{
+  max-width:320px;
+  display:flex;flex-direction:column;
+  gap:2rem;padding-bottom:0.5rem;
+}
+.hero-bio{
+  font-size:0.95rem;line-height:1.75;color:var(--muted);
+  border-left:2px solid var(--accent);
+  padding-left:1.2rem;
+}
+.hero-ctas{display:flex;flex-direction:column;gap:0.75rem}
+.btn-fill{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:0.5rem;padding:0.9rem 2rem;
+  background:var(--ink);color:var(--white);
+  font-size:0.78rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s,transform 0.15s;
+}
+.btn-fill:hover{background:var(--accent);transform:translateX(4px)}
+.btn-out{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:0.9rem 2rem;
+  border:1.5px solid var(--ink);color:var(--ink);
+  font-size:0.78rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.2s;
+}
+.btn-out:hover{background:var(--ink);color:var(--white)}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;right:3rem;
+  display:flex;align-items:center;gap:0.6rem;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--muted);
+}
+.scroll-line{width:40px;height:1px;background:var(--muted)}
+
+/* MARQUEE */
+.marquee-wrap{
+  background:var(--accent);
+  overflow:hidden;padding:0.85rem 0;
+  border-top:1px solid rgba(0,0,0,0.1);
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.marquee-track{
+  display:flex;white-space:nowrap;
+  animation:marquee 25s linear infinite;
+}
+.marquee-track span{
+  font-size:0.75rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--white);
+  padding:0 2.5rem;
+}
+.marquee-track span.dot{
+  color:rgba(255,255,255,0.4);padding:0;
+}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{padding:7rem 3rem}
+.section.dark{background:var(--ink);color:var(--white)}
+.section.cream{background:var(--bg2)}
+.section.white{background:var(--white)}
+
+.s-label{
+  display:inline-flex;align-items:center;gap:0.7rem;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.2rem;
+}
+.s-label::before{content:'';width:20px;height:1.5px;background:var(--accent)}
+.s-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.5rem,5vw,5rem);
+  font-weight:400;line-height:1.0;
+  letter-spacing:-0.02em;
+}
+.s-title em{font-style:italic;font-weight:200;color:var(--accent)}
+.section.dark .s-label{color:var(--accent2)}
+.section.dark .s-label::before{background:var(--accent2)}
+.section.dark .s-title em{color:var(--accent2)}
+
+/* ABOUT */
+.about-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6rem;margin-top:5rem;
+  align-items:start;
+}
+.about-img-wrap{
+  position:sticky;top:8rem;
+}
+.about-img{
+  width:100%;aspect-ratio:3/4;
+  background:var(--bg2);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-img img{
+  width:100%;height:100%;object-fit:cover;
+  object-position:top center;
+}
+.about-img-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,var(--bg2) 0%,var(--border) 100%);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:1rem;
+}
+.about-img-placeholder p{
+  font-size:0.72rem;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);
+}
+.img-badge{
+  position:absolute;bottom:1.5rem;right:1.5rem;
+  background:var(--accent);color:var(--white);
+  font-size:0.65rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.5rem 1rem;
+}
+.about-content{}
+.about-intro{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.4rem,2.2vw,2rem);
+  font-weight:400;line-height:1.4;
+  color:var(--ink);margin-bottom:2.5rem;
+}
+.about-intro em{font-style:italic;color:var(--accent)}
+.about-body p{
+  font-size:0.95rem;line-height:1.85;
+  color:var(--muted);margin-bottom:1.3rem;
+}
+.about-body p strong{color:var(--ink);font-weight:600}
+.edu-block{
+  margin-top:3rem;
+  border-top:1px solid var(--border);
+  padding-top:2rem;
+}
+.edu-label{
+  font-size:0.68rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:1.2rem;
+}
+.edu-item{margin-bottom:1rem}
+.edu-item h4{
+  font-size:0.9rem;font-weight:600;color:var(--ink);
+}
+.edu-item p{font-size:0.82rem;color:var(--muted)}
+.skills-wrap{
+  margin-top:3rem;display:flex;flex-wrap:wrap;gap:0.5rem;
+}
+.skill{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.06em;
+  padding:0.4rem 1rem;
+  border:1.5px solid var(--border);
+  color:var(--ink2);
+  transition:all 0.2s;cursor:default;
+}
+.skill:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+/* NUMBERS STRIP */
+.numbers{
+  background:var(--ink);
+  display:grid;grid-template-columns:repeat(5,1fr);
+}
+.num-item{
+  padding:3.5rem 2rem;
+  border-right:1px solid rgba(255,255,255,0.08);
+  text-align:center;position:relative;
+}
+.num-item:last-child{border-right:none}
+.num-big{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.5rem,4vw,4rem);
+  font-weight:200;font-style:italic;
+  color:var(--accent2);
+  display:block;line-height:1;margin-bottom:0.5rem;
+}
+.num-label{
+  font-size:0.68rem;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+  display:block;
+}
+.num-sub{
+  font-size:0.7rem;color:rgba(255,255,255,0.25);
+  margin-top:0.3rem;display:block;
 }
 
-.hero h1 {
-  font-size: 64px;
-  font-weight: 600;
-  line-height: 1.1;
+/* WORK / CASE STUDIES */
+.work-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:end;
+  margin-bottom:5rem;
+}
+.work-intro-text{
+  font-size:0.95rem;line-height:1.8;color:var(--muted);
+  max-width:420px;
 }
 
-.hero p {
-  margin-top: 20px;
-  max-width: 500px;
-  color: #666;
-  font-size: 18px;
+.case-list{display:flex;flex-direction:column;gap:2px}
+.case-item{
+  display:grid;
+  grid-template-columns:80px 1fr auto;
+  align-items:center;
+  gap:2.5rem;
+  padding:2.5rem 2rem;
+  background:var(--white);
+  border-bottom:1px solid var(--border2);
+  text-decoration:none;
+  transition:background 0.25s,padding-left 0.25s;
+  position:relative;overflow:hidden;
+  cursor:none;
+}
+.case-item::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--accent);
+  transition:width 0.3s ease;
+}
+.case-item:hover::before{width:4px}
+.case-item:hover{background:var(--bg);padding-left:2.5rem}
+.case-num{
+  font-family:'Fraunces',serif;
+  font-size:1.8rem;font-weight:200;font-style:italic;
+  color:rgba(28,23,19,0.15);
+  transition:color 0.25s;
+}
+.case-item:hover .case-num{color:var(--accent)}
+.case-info h3{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.4rem,2.5vw,2rem);
+  font-weight:400;color:var(--ink);
+  margin-bottom:0.4rem;letter-spacing:-0.01em;
+}
+.case-info p{font-size:0.82rem;color:var(--muted)}
+.case-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.6rem}
+.case-tag{
+  font-size:0.65rem;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:0.25rem 0.7rem;
+  background:rgba(196,98,45,0.08);color:var(--accent);
+}
+.case-arrow{
+  font-size:1.5rem;color:var(--muted);
+  transition:transform 0.25s,color 0.25s;
+}
+.case-item:hover .case-arrow{transform:translateX(6px);color:var(--accent)}
+
+/* CASE DETAIL CARDS */
+.case-details{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;background:var(--border2);
+  margin-top:2px;
+}
+.cd{background:var(--white);padding:3rem 2.5rem}
+.cd.full{grid-column:1/-1}
+.cd.accent-bg{background:var(--accent);color:var(--white)}
+.cd.dark-bg{background:var(--ink);color:var(--white)}
+.cd-label{
+  font-size:0.66rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:0.8rem;
+}
+.cd.accent-bg .cd-label{color:rgba(255,255,255,0.6)}
+.cd.dark-bg .cd-label{color:rgba(255,255,255,0.4)}
+.cd-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.3rem,2vw,1.8rem);
+  font-weight:400;color:var(--ink);
+  margin-bottom:1rem;
+  line-height:1.2;
+}
+.cd.accent-bg .cd-title{color:var(--white)}
+.cd.dark-bg .cd-title{color:var(--white)}
+.cd-body{font-size:0.88rem;line-height:1.8;color:var(--muted)}
+.cd.accent-bg .cd-body{color:rgba(255,255,255,0.8)}
+.cd.dark-bg .cd-body{color:rgba(255,255,255,0.6)}
+.cd-metric{
+  font-family:'Fraunces',serif;
+  font-size:3.5rem;font-weight:200;font-style:italic;
+  color:var(--accent);line-height:1;
+  margin-bottom:0.4rem;
+}
+.cd.accent-bg .cd-metric{color:var(--white)}
+.metric-row{display:flex;gap:3rem;flex-wrap:wrap;margin-top:1rem}
+.metric-item{}
+.metric-item .big{
+  font-family:'Fraunces',serif;
+  font-size:2.5rem;font-weight:200;font-style:italic;
+  color:var(--accent2);display:block;line-height:1;
+}
+.metric-item .lbl{
+  font-size:0.68rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;color:rgba(255,255,255,0.5);
+}
+.outcome-list{list-style:none;margin-top:0.5rem}
+.outcome-list li{
+  font-size:0.88rem;color:var(--muted);
+  padding:0.6rem 0;
+  border-bottom:1px solid var(--border2);
+  display:flex;align-items:flex-start;gap:0.75rem;
+  line-height:1.6;
+}
+.outcome-list li::before{
+  content:'→';color:var(--accent);
+  flex-shrink:0;font-size:0.8rem;margin-top:0.1rem;
 }
 
-/* SECTION */
-.section {
-  margin-top: 80px;
+/* IMAGE PLACEHOLDER */
+.img-placeholder{
+  width:100%;
+  background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:0.8rem;
+  position:relative;overflow:hidden;
+}
+.img-placeholder::after{
+  content:'';
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    45deg,transparent,transparent 10px,
+    rgba(0,0,0,0.015) 10px,rgba(0,0,0,0.015) 11px
+  );
+}
+.img-placeholder p{
+  font-size:0.7rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--muted);
+  position:relative;z-index:1;
+}
+.img-placeholder img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  position:absolute;inset:0;
 }
 
-.section-title {
-  font-size: 28px;
-  margin-bottom: 30px;
+/* EXPERIENCE TIMELINE */
+.exp-layout{
+  display:grid;grid-template-columns:300px 1fr;
+  gap:5rem;margin-top:5rem;
+}
+.exp-nav{position:sticky;top:8rem;height:fit-content}
+.exp-nav-item{
+  padding:1rem 0;border-bottom:1px solid var(--border);
+  cursor:pointer;transition:all 0.2s;
+}
+.exp-nav-item:first-child{border-top:1px solid var(--border)}
+.exp-nav-item.active .en-role{color:var(--accent)}
+.exp-nav-item.active .en-bar{width:30px}
+.en-bar{width:0;height:2px;background:var(--accent);margin-bottom:0.5rem;transition:width 0.3s}
+.en-role{font-size:0.88rem;font-weight:600;color:var(--ink2);transition:color 0.2s}
+.en-co{font-size:0.78rem;color:var(--muted)}
+.en-yr{font-size:0.7rem;color:var(--muted);margin-top:0.2rem}
+
+.exp-panels{}
+.exp-panel{display:none}
+.exp-panel.active{display:block}
+.ep-header{margin-bottom:2.5rem}
+.ep-period{
+  font-size:0.7rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;
+}
+.ep-role{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:400;line-height:1.1;
+  color:var(--ink);margin-bottom:0.4rem;
+}
+.ep-company{font-size:1rem;color:var(--muted);font-style:italic}
+.ep-story{
+  font-size:0.95rem;line-height:1.85;color:var(--muted);
+  max-width:580px;margin-bottom:2rem;
+}
+.ep-achievements{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-bottom:2rem;
+}
+.ep-ach{
+  padding:1.5rem;
+  border:1px solid var(--border);
+}
+.ep-ach .big{
+  font-family:'Fraunces',serif;
+  font-size:2.2rem;font-weight:200;font-style:italic;
+  color:var(--accent);display:block;line-height:1;
+}
+.ep-ach .lbl{font-size:0.72rem;color:var(--muted);margin-top:0.3rem;display:block}
+.ep-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.ep-tag{
+  font-size:0.67rem;font-weight:600;letter-spacing:0.07em;
+  padding:0.3rem 0.75rem;
+  background:rgba(196,98,45,0.07);color:var(--accent);
 }
 
-/* CASE CARD */
-.case {
-  background: #fff;
-  padding: 35px;
-  border-radius: 16px;
-  margin-bottom: 25px;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+/* WHAT I BRING */
+.bring-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:2px;background:var(--border2);
+  margin-top:4rem;
+}
+.bring-item{
+  background:var(--ink);
+  padding:3rem;
+  transition:background 0.3s;
+}
+.bring-item:hover{background:#2A241F}
+.bring-item:nth-child(odd){background:var(--ink)}
+.bring-num{
+  font-family:'Fraunces',serif;
+  font-size:0.85rem;font-style:italic;
+  color:var(--accent2);margin-bottom:1.2rem;display:block;
+}
+.bring-h{
+  font-family:'Fraunces',serif;
+  font-size:1.6rem;font-weight:400;
+  color:var(--white);margin-bottom:0.8rem;
+}
+.bring-d{font-size:0.87rem;line-height:1.8;color:rgba(255,255,255,0.5)}
+
+/* ACHIEVEMENTS */
+.ach-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2rem;margin-top:4rem;
+}
+.ach-card{
+  padding:2.5rem;
+  border:1.5px solid var(--border);
+  position:relative;overflow:hidden;
+  transition:border-color 0.25s,transform 0.25s;
+}
+.ach-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.ach-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s;
+}
+.ach-card:hover::before{transform:scaleX(1)}
+.ach-yr{
+  font-family:'Fraunces',serif;
+  font-size:3rem;font-weight:200;font-style:italic;
+  color:rgba(28,23,19,0.06);
+  line-height:1;margin-bottom:1rem;display:block;
+}
+.ach-h{
+  font-family:'Fraunces',serif;
+  font-size:1.25rem;font-weight:400;
+  color:var(--ink);margin-bottom:0.7rem;
+}
+.ach-d{font-size:0.85rem;line-height:1.78;color:var(--muted)}
+
+/* CREATIVE SIDE */
+.creative-intro{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.5rem,3vw,2.5rem);
+  font-weight:400;font-style:italic;
+  color:rgba(255,255,255,0.7);
+  line-height:1.4;max-width:600px;
+  margin:2rem 0 4rem;
+}
+.creative-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,0.06);
+}
+.cr-item{
+  padding:2.5rem 2rem;
+  background:var(--ink);
+  border:1px solid rgba(255,255,255,0.05);
+  transition:background 0.25s;
+}
+.cr-item:hover{background:#251E19}
+.cr-marker{
+  font-size:0.65rem;font-weight:600;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--accent2);
+  margin-bottom:1rem;display:block;
+}
+.cr-h{
+  font-family:'Fraunces',serif;
+  font-size:1.3rem;font-weight:400;
+  color:var(--white);margin-bottom:0.6rem;
+}
+.cr-d{font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.45)}
+
+/* APPROACH */
+.approach-wrap{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:start;margin-top:5rem;
+}
+.approach-left{}
+.approach-pull{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.6rem,2.5vw,2.2rem);
+  font-weight:400;font-style:italic;
+  color:var(--ink);line-height:1.3;
+  border-left:3px solid var(--accent);
+  padding-left:1.5rem;margin-bottom:2rem;
+}
+.approach-left p{font-size:0.92rem;line-height:1.85;color:var(--muted);margin-bottom:1.2rem}
+.approach-steps{}
+.a-step{
+  display:grid;grid-template-columns:50px 1fr;
+  gap:1.5rem;padding:1.75rem 0;
+  border-bottom:1px solid var(--border);
+  align-items:start;
+}
+.a-step:first-child{padding-top:0}
+.a-n{
+  font-family:'Fraunces',serif;
+  font-size:1.5rem;font-weight:200;font-style:italic;
+  color:var(--accent);margin-top:-0.2rem;
+}
+.a-h{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:0.4rem}
+.a-d{font-size:0.85rem;line-height:1.78;color:var(--muted)}
+
+/* TESTIMONIALS */
+.test-intro{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.2rem,2vw,1.8rem);
+  font-weight:400;font-style:italic;
+  color:rgba(255,255,255,0.5);
+  max-width:500px;margin:1rem 0 4rem;
+  line-height:1.5;
+}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.test-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:2.5rem 2rem;
+  position:relative;
+  transition:background 0.25s;
+}
+.test-card:hover{background:rgba(255,255,255,0.07)}
+.test-quote{
+  font-family:'Fraunces',serif;
+  font-size:1rem;font-style:italic;
+  color:rgba(255,255,255,0.7);
+  line-height:1.7;margin-bottom:1.8rem;
+}
+.test-mark{
+  font-family:'Fraunces',serif;
+  font-size:4rem;font-weight:200;
+  color:var(--accent);opacity:0.3;
+  position:absolute;top:1rem;right:1.5rem;line-height:1;
+}
+.test-name{font-size:0.85rem;font-weight:600;color:var(--white)}
+.test-title{font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:0.2rem}
+.test-badge{
+  position:absolute;bottom:1.5rem;right:1.5rem;
+  font-size:0.58rem;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;padding:0.2rem 0.6rem;
+  background:rgba(196,98,45,0.2);color:var(--accent2);
 }
 
-.case:hover {
-  transform: translateY(-6px);
-  border-color: #E8DCCF;
+/* CONTACT */
+.contact-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:start;
+  margin-top:4rem;
 }
-
-.case h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.contact-left{}
+.contact-headline{
+  font-family:'Fraunces',serif;
+  font-size:clamp(3rem,6vw,6rem);
+  font-weight:400;line-height:0.95;
+  letter-spacing:-0.02em;color:var(--ink);
+  margin-bottom:2rem;
 }
-
-.case p {
-  color: #666;
-  font-size: 15px;
-  margin-top: 6px;
+.contact-headline em{font-style:italic;font-weight:200;color:var(--accent)}
+.contact-body{font-size:0.95rem;line-height:1.8;color:var(--muted);margin-bottom:2.5rem}
+.contact-email{
+  font-family:'Fraunces',serif;
+  font-size:1.3rem;font-style:italic;
+  color:var(--accent);text-decoration:none;
+  display:block;margin-bottom:2rem;
+  transition:opacity 0.2s;
 }
-
-.highlight {
-  color: #D9A5A5;
-  font-style: italic;
-  margin-top: 10px;
+.contact-email:hover{opacity:0.7}
+.contact-links{display:flex;flex-direction:column;gap:0.5rem}
+.contact-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.5rem;
+  border:1.5px solid var(--border);
+  color:var(--ink);text-decoration:none;
+  font-size:0.82rem;font-weight:600;
+  letter-spacing:0.06em;
+  transition:all 0.2s;
 }
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+.contact-link:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.contact-right{padding-top:1rem}
+.contact-info{margin-bottom:2.5rem}
+.ci-label{
+  font-size:0.66rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;
 }
-
-/* FULL WIDTH ON MOBILE */
-@media(max-width: 768px) {
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.ci-val{font-size:0.95rem;color:var(--ink);font-weight:500}
+.dl-btn{
+  display:inline-flex;align-items:center;gap:0.8rem;
+  margin-top:2rem;
+  padding:1rem 2.5rem;
+  background:var(--accent);color:var(--white);
+  font-size:0.8rem;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;text-decoration:none;
+  transition:background 0.2s,transform 0.15s;
+  width:100%;justify-content:center;
 }
+.dl-btn:hover{background:var(--ink);transform:translateY(-2px)}
 
-/* DIVIDER */
-.divider {
-  height: 1px;
-  background: #E8DCCF;
-  margin: 80px 0;
+/* FOOTER */
+footer{
+  background:var(--ink2);
+  padding:2rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(255,255,255,0.06);
 }
+footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+footer a{font-size:0.75rem;color:rgba(255,255,255,0.3);text-decoration:none}
 
-/* FADE ANIMATION */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
+/* ANIMATIONS */
+.reveal{
+  opacity:0;transform:translateY(28px);
+  transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),
+             transform 0.75s cubic-bezier(0.22,1,0.36,1);
 }
+.reveal.up{opacity:1;transform:none}
+.reveal.d1{transition-delay:0.1s}
+.reveal.d2{transition-delay:0.2s}
+.reveal.d3{transition-delay:0.3s}
+.reveal.d4{transition-delay:0.4s}
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:1.2rem 1.5rem}
+  .section{padding:5rem 1.5rem}
+  #hero{padding:0 1.5rem 3.5rem}
+  .hero-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-right{max-width:100%}
+  .about-layout{grid-template-columns:1fr;gap:3rem}
+  .about-img-wrap{position:relative;top:0}
+  .numbers{grid-template-columns:repeat(3,1fr)}
+  .case-item{grid-template-columns:50px 1fr auto;gap:1.5rem}
+  .case-details{grid-template-columns:1fr}
+  .cd.full{grid-column:1}
+  .exp-layout{grid-template-columns:1fr;gap:2rem}
+  .exp-nav{position:relative;top:0;display:flex;flex-wrap:wrap;gap:0;margin-bottom:2rem}
+  .exp-nav-item{flex:1;min-width:180px;padding:0.75rem}
+  .ep-achievements{grid-template-columns:repeat(2,1fr)}
+  .bring-grid{grid-template-columns:1fr}
+  .ach-grid{grid-template-columns:1fr}
+  .creative-grid{grid-template-columns:1fr 1fr}
+  .approach-wrap{grid-template-columns:1fr;gap:3rem}
+  .test-grid{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-bg-text{font-size:clamp(5rem,15vw,10rem)}
+  footer{flex-direction:column;gap:0.75rem;text-align:center}
 }
-
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Anuradha Tripathi</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
 
 <!-- HERO -->
-<div class="hero fade">
-  <h1>Hi, I’m Anuradha</h1>
-  <p>
-    I don’t just create content—I try to understand why people connect, what makes them pause, and what actually stays.
-    My work blends strategy, storytelling, and real-world execution.
-  </p>
-</div>
-
-<div class="divider"></div>
-
-<!-- WORK -->
-<div class="section">
-  <h2 class="section-title fade">Selected Work</h2>
-
-  <div class="grid">
-
-    <div class="case fade">
-      <h3>Pillsbury — Rakshabandhan</h3>
-      <p><strong>Insight:</strong> Corporate gifting feels transactional.</p>
-      <p>Customized packaging with names and messages to create emotional connection among employees.</p>
-      <p class="highlight">“It wasn’t gifting. It was making someone feel remembered.”</p>
+<section id="hero">
+  <div class="hero-bg-text">Anuradha</div>
+  <p class="hero-tag">Open to opportunities · Mumbai &amp; Global</p>
+  <div class="hero-grid">
+    <div>
+      <h1 class="hero-headline">
+        I make brands<br>
+        feel like<br>
+        <em>something.</em>
+      </h1>
     </div>
-
-    <div class="case fade">
-      <h3>A2 Milk — Lead Generation</h3>
-      <p><strong>Insight:</strong> Trust drives premium purchases.</p>
-      <p>Built an education-first funnel to move users from awareness to conversion.</p>
-      <p class="highlight">“People don’t buy products. They buy belief.”</p>
+    <div class="hero-right">
+      <p class="hero-bio">7+ years building brand stories that cut through the noise — across beauty, food, fintech, tech, and media. I care deeply about the human side of marketing: why people connect, what makes them stay, and how content earns trust over time.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn-fill">See My Work →</a>
+        <a href="#contact" class="btn-out">Let's Talk</a>
+      </div>
     </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
 
-    <div class="case fade">
-      <h3>Rice Bran Oil — Activation</h3>
-      <p><strong>Insight:</strong> Health needs to be experienced.</p>
-      <p>Gamified a 5kg lifting challenge to create interaction and recall.</p>
-      <p class="highlight">“If people experience it, they remember it.”</p>
-    </div>
-
-    <div class="case fade">
-      <h3>HP Experience</h3>
-      <p>Created hands-on product setups in corporate parks to build trust through use.</p>
-    </div>
-
-    <div class="case fade">
-      <h3>Digitek — Content</h3>
-      <p>Shifted focus from specs to real-life usage to make products relatable.</p>
-    </div>
-
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Brand Strategy</span><span class="dot">·</span>
+    <span>Content Creation</span><span class="dot">·</span>
+    <span>Campaign Planning</span><span class="dot">·</span>
+    <span>Social Media</span><span class="dot">·</span>
+    <span>Influencer Marketing</span><span class="dot">·</span>
+    <span>Copywriting</span><span class="dot">·</span>
+    <span>Brand Storytelling</span><span class="dot">·</span>
+    <span>Audience Growth</span><span class="dot">·</span>
+    <span>Event Marketing</span><span class="dot">·</span>
+    <span>Brand Positioning</span><span class="dot">·</span>
+    <!-- repeat for seamless loop -->
+    <span>Brand Strategy</span><span class="dot">·</span>
+    <span>Content Creation</span><span class="dot">·</span>
+    <span>Campaign Planning</span><span class="dot">·</span>
+    <span>Social Media</span><span class="dot">·</span>
+    <span>Influencer Marketing</span><span class="dot">·</span>
+    <span>Copywriting</span><span class="dot">·</span>
+    <span>Brand Storytelling</span><span class="dot">·</span>
+    <span>Audience Growth</span><span class="dot">·</span>
+    <span>Event Marketing</span><span class="dot">·</span>
+    <span>Brand Positioning</span><span class="dot">·</span>
   </div>
 </div>
 
-<div class="divider"></div>
-
-<!-- CREATIVE THINKING -->
-<div class="section">
-  <h2 class="section-title fade">Creative Thinking</h2>
-
-  <div class="grid">
-
-    <div class="case fade">
-      <h3>Fevicol — Stuck With You</h3>
-      <p><strong>Insight:</strong> Strength is expected. Emotion isn’t.</p>
-      <p>Stop-motion storytelling where objects refuse to leave.</p>
-      <p class="highlight">“Some things stay because they matter.”</p>
+<!-- ABOUT -->
+<section id="about" class="section white">
+  <div class="s-label reveal">The Person</div>
+  <h2 class="s-title reveal d1">A marketer who<br><em>actually gets people</em></h2>
+  <div class="about-layout">
+    <div class="about-img-wrap reveal">
+      <div class="about-img" style="aspect-ratio:3/4">
+        <div class="about-img-placeholder">
+          <!-- Replace below with: <img src="your-photo.jpg" alt="Anuradha Tripathi"> -->
+          <p>Your photo here</p>
+          <p style="font-size:0.62rem;opacity:0.5">(add your image file)</p>
+        </div>
+        <div class="img-badge">7+ Years</div>
+      </div>
     </div>
-
-    <div class="case fade">
-      <h3>Nykaa — Not Ready Yet</h3>
-      <p><strong>Insight:</strong> People relate to the process.</p>
-      <p>Raw beauty content showing in-between moments instead of perfection.</p>
+    <div class="about-content">
+      <p class="about-intro reveal d1">
+        I've always believed that the best marketing doesn't feel like marketing. It feels like <em>truth</em> — delivered at the right moment, in the right voice.
+      </p>
+      <div class="about-body reveal d2">
+        <p>I'm Anuradha. I've spent the last seven years helping brands figure out what they actually want to say — and then saying it in a way that lands. My background spans beauty, F&B, fintech, tech, events, and media, which means I've had to think differently for wildly different audiences and contexts.</p>
+        <p>What I've learned: <strong>the brand that understands its audience better than its competitors always wins</strong>. Not the one with the biggest budget. The one that's most human. That drives everything I do.</p>
+        <p>I'm equally comfortable building strategy decks and writing Instagram captions at 11pm. I can run an influencer campaign and walk you through your content calendar. I know how to manage an agency and also roll my sleeves up and do the work myself.</p>
+        <p>Beyond the marketing world, I find myself drawn to regional cinema, travel, photography, and Indian classical music — things that keep me tuned into culture, emotion, and how people actually experience the world.</p>
+      </div>
+      <div class="edu-block reveal d3">
+        <p class="edu-label">Education</p>
+        <div class="edu-item">
+          <h4>MBA — Marketing Management</h4>
+          <p>NMIMS Mumbai</p>
+        </div>
+        <div class="edu-item">
+          <h4>Bachelor of Mass Media</h4>
+          <p>University of Mumbai</p>
+        </div>
+        <div class="edu-item">
+          <h4>Indian Classical Vocal — 3-Year Diploma</h4>
+          <p>Prayag Sangeet Samiti, Allahabad</p>
+        </div>
+      </div>
+      <div class="skills-wrap reveal d4">
+        <span class="skill">Brand Strategy</span>
+        <span class="skill">Content Creation</span>
+        <span class="skill">Organic Social</span>
+        <span class="skill">Copywriting</span>
+        <span class="skill">Campaign Planning</span>
+        <span class="skill">Influencer Marketing</span>
+        <span class="skill">Event Marketing</span>
+        <span class="skill">Google Analytics</span>
+        <span class="skill">Brand Positioning</span>
+        <span class="skill">Market Research</span>
+        <span class="skill">Team Leadership</span>
+        <span class="skill">GTM Strategy</span>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="case fade">
-      <h3>Zomato — Order Your Mood</h3>
-      <p><strong>Insight:</strong> Food = emotion, not category.</p>
-      <p>Emotion-based discovery system replacing traditional menus.</p>
-    </div>
-
-    <div class="case fade">
-      <h3>Pepsi — Did It Even Happen?</h3>
-      <p><strong>Insight:</strong> Moments feel real only when recorded.</p>
-      <p>Campaign built on reliving unrecorded experiences.</p>
-    </div>
-
-    <div class="case fade">
-      <h3>Just Herbs — Your Skin, But Calmer</h3>
-      <p><strong>Insight:</strong> Not all skincare is transformation.</p>
-      <p>Minimal storytelling focused on comfort and subtle change.</p>
-    </div>
-
+<!-- NUMBERS -->
+<div class="numbers">
+  <div class="num-item reveal">
+    <span class="num-big">18%</span>
+    <span class="num-label">Revenue Increase</span>
+    <span class="num-sub">Sugar Beauty Lounge</span>
+  </div>
+  <div class="num-item reveal d1">
+    <span class="num-big">25%</span>
+    <span class="num-label">Engagement Growth</span>
+    <span class="num-sub">Social Media · Multiple brands</span>
+  </div>
+  <div class="num-item reveal d2">
+    <span class="num-big">800K+</span>
+    <span class="num-label">Global Reach</span>
+    <span class="num-sub">InstaReM · Aug 2021 · Organic only</span>
+  </div>
+  <div class="num-item reveal d3">
+    <span class="num-big">40%</span>
+    <span class="num-label">Organic User Growth</span>
+    <span class="num-sub">Sixthsense Communications</span>
+  </div>
+  <div class="num-item reveal d4">
+    <span class="num-big">30%</span>
+    <span class="num-label">New Customer Acquisition</span>
+    <span class="num-sub">Assurekit Technologies</span>
   </div>
 </div>
 
-<div class="divider"></div>
+<!-- WORK / CASE STUDIES -->
+<section id="work" class="section cream">
+  <div class="work-intro">
+    <div>
+      <div class="s-label reveal">Selected Work</div>
+      <h2 class="s-title reveal d1">Case<br><em>Studies</em></h2>
+    </div>
+    <p class="work-intro-text reveal d2">These aren't just project summaries — they're stories about real challenges, genuine thinking, and outcomes that actually moved the needle.</p>
+  </div>
 
-<!-- FOOTER -->
-<div class="fade">
-  <p style="color:#666">
-    I’m interested in building work that people don’t just see—but feel.
-  </p>
-</div>
+  <!-- CASE 1: SUGAR BEAUTY LOUNGE -->
+  <div class="case-list reveal">
+    <div class="case-item">
+      <span class="case-num">01</span>
+      <div class="case-info">
+        <h3>Sugar Beauty Lounge</h3>
+        <p>Marketing &amp; Brand Manager · Dubai, UAE · 2024–2026</p>
+        <div class="case-tags">
+          <span class="case-tag">Beauty &amp; Lifestyle</span>
+          <span class="case-tag">Seasonal Campaigns</span>
+          <span class="case-tag">SMS Marketing</span>
+          <span class="case-tag">Influencer Collabs</span>
+        </div>
+      </div>
+      <span class="case-arrow">→</span>
+    </div>
+    <div class="case-details">
+      <div class="cd full">
+        <div class="cd-label">The Challenge</div>
+        <p class="cd-body">A premium beauty lounge in Dubai with a loyal base — but inconsistent content, no clear seasonal campaign rhythm, and SMS campaigns that felt like spam. The brand needed to feel like a destination, not just a booking.</p>
+      </div>
+      <div class="cd">
+        <div class="cd-label">What I Did</div>
+        <div class="cd-title">Built the brand from the inside out</div>
+        <p class="cd-body">Developed a seasonal content strategy tied to cultural moments and beauty lifestyle occasions. Reimagined SMS from broadcast to personalised first-visit nurture. Handpicked influencer collaborations for fit over follower count. Created in-salon open day experiences that turned clients into community.</p>
+      </div>
+      <div class="cd dark-bg">
+        <div class="cd-label" style="color:rgba(255,255,255,0.4)">The Results</div>
+        <div class="metric-row">
+          <div class="metric-item">
+            <span class="big">18%</span>
+            <span class="lbl">Revenue increase</span>
+          </div>
+          <div class="metric-item">
+            <span class="big">25%</span>
+            <span class="lbl">Social engagement ↑</span>
+          </div>
+          <div class="metric-item">
+            <span class="big">15%</span>
+            <span class="lbl">Conversion lift (SMS)</span>
+          </div>
+          <div class="metric-item">
+            <span class="big">20%</span>
+            <span class="lbl">Monthly bookings ↑</span>
+          </div>
+        </div>
+      </div>
+      <div class="cd">
+        <!-- Image placeholder for Sugar Beauty -->
+        <div class="img-placeholder" style="height:280px">
+          <!-- <img src="sugar-beauty.jpg" alt="Sugar Beauty Lounge Campaign"> -->
+          <p>Campaign Image</p>
+          <p style="font-size:0.62rem;color:var(--muted);opacity:0.6">Add sugar-beauty.jpg</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <!-- CASE 2: INSTAREM -->
+  <div class="case-list reveal" style="margin-top:2px">
+    <div class="case-item">
+      <span class="case-num">02</span>
+      <div class="case-info">
+        <h3>InstaReM · Sixthsense</h3>
+        <p>Brand Operations Coordinator · 2021</p>
+        <div class="case-tags">
+          <span class="case-tag">Fintech</span>
+          <span class="case-tag">Organic Content</span>
+          <span class="case-tag">800K+ Reach</span>
+          <span class="case-tag">Multi-format</span>
+        </div>
+      </div>
+      <span class="case-arrow">→</span>
+    </div>
+    <div class="case-details">
+      <div class="cd accent-bg">
+        <div class="cd-label">The Milestone</div>
+        <div class="cd-title">800,000+ audience reached. Zero paid budget.</div>
+        <p class="cd-body">In August 2021, a purely organic content strategy — articles, social posts, digital content — reached 800,000+ people globally for InstaReM. That doesn't happen by accident. It happens when you understand what your audience actually cares about and deliver it consistently across the right channels.</p>
+      </div>
+      <div class="cd">
+        <div class="cd-label">The Numbers</div>
+        <ul class="outcome-list">
+          <li>800,000+ organic audience reached in a single month</li>
+          <li>40% organic user growth across platforms</li>
+          <li>55% increase in revenue attributed to content strategy</li>
+          <li>Supported campaigns for BYJU'S, HUL, ITC, and Native Milk</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
+  <!-- CASE 3: NEXTSAA -->
+  <div class="case-list reveal" style="margin-top:2px">
+    <div class="case-item">
+      <span class="case-num">03</span>
+      <div class="case-info">
+        <h3>NextSAA Services</h3>
+        <p>Lead Marketing Manager · Jul 2023 – Jan 2024</p>
+        <div class="case-tags">
+          <span class="case-tag">Multi-client</span>
+          <span class="case-tag">Social Strategy</span>
+          <span class="case-tag">Brand Identity</span>
+          <span class="case-tag">GTM Planning</span>
+        </div>
+      </div>
+      <span class="case-arrow">→</span>
+    </div>
+    <div class="case-details">
+      <div class="cd">
+        <div class="cd-label">The Work</div>
+        <div class="cd-title">Building brands across industries, simultaneously</div>
+        <p class="cd-body">Managing marketing for multiple clients at once is a discipline. You need systems, not just creativity. I built tailored brand identities and social strategies per client, supervised the agency, ran GTM planning, and consistently delivered measurable growth.</p>
+      </div>
+      <div class="cd">
+        <div class="cd-label">Results</div>
+        <ul class="outcome-list">
+          <li>20%+ follower growth across all client accounts</li>
+          <li>25% engagement boost through strategic content planning</li>
+          <li>Brand presence expanded into new markets</li>
+          <li>Cross-functional GTM strategies for new product launches</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4: ASSUREKIT -->
+  <div class="case-list reveal" style="margin-top:2px">
+    <div class="case-item">
+      <span class="case-num">04</span>
+      <div class="case-info">
+        <h3>Assurekit Technologies</h3>
+        <p>Assistant Marketing Manager · Jul 2022 – Jun 2023</p>
+        <div class="case-tags">
+          <span class="case-tag">Tech / Insurtech</span>
+          <span class="case-tag">Brand Building</span>
+          <span class="case-tag">Customer Retention</span>
+        </div>
+      </div>
+      <span class="case-arrow">→</span>
+    </div>
+    <div class="case-details">
+      <div class="cd full">
+        <div class="cd-label">Impact</div>
+        <ul class="outcome-list" style="columns:2;gap:2rem">
+          <li>30% increase in new customer acquisition through brand strategy</li>
+          <li>60% retention rate for existing customers</li>
+          <li>Consistent messaging across digital, PR, and event channels</li>
+          <li>Strengthened brand recognition in a competitive fintech landscape</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I BRING -->
+<section class="section dark">
+  <div class="s-label reveal">What Sets Me Apart</div>
+  <h2 class="s-title reveal d1">I'm not just<br><em>a content person.</em></h2>
+  <div class="bring-grid reveal d2">
+    <div class="bring-item">
+      <span class="bring-num">01 —</span>
+      <h3 class="bring-h">I think in systems, not posts</h3>
+      <p class="bring-d">Anyone can write a caption. I build the frameworks — content calendars, campaign arcs, brand voice guides — that make great content happen consistently over time, not just when inspiration strikes.</p>
+    </div>
+    <div class="bring-item" style="background:#211B16">
+      <span class="bring-num">02 —</span>
+      <h3 class="bring-h">I understand brands emotionally</h3>
+      <p class="bring-d">Before I touch a strategy, I want to know how a brand makes people feel. That emotional intelligence is what makes campaigns land — and what separates forgettable content from content that builds real loyalty.</p>
+    </div>
+    <div class="bring-item" style="background:#211B16">
+      <span class="bring-num">03 —</span>
+      <h3 class="bring-h">I've worked across wildly different industries</h3>
+      <p class="bring-d">Beauty in Dubai. Bakeries. Fintech. Events. Media. Tech. That cross-sector experience means I bring unexpected ideas to every brief — and I know how to adapt without losing the brand's core.</p>
+    </div>
+    <div class="bring-item">
+      <span class="bring-num">04 —</span>
+      <h3 class="bring-h">I can lead or execute — whatever you need</h3>
+      <p class="bring-d">I've managed agencies, led teams, and also written copy at midnight to hit a deadline. I'm not precious about hierarchy. I care about the work being good and the brand moving forward.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience" class="section white">
+  <div class="s-label reveal">Career</div>
+  <h2 class="s-title reveal d1">7 Years,<br><em>7 roles.</em></h2>
+  <div class="exp-layout">
+    <div class="exp-nav" id="expNav">
+      <div class="exp-nav-item active" data-panel="0">
+        <div class="en-bar"></div>
+        <div class="en-role">Sugar Beauty Lounge</div>
+        <div class="en-co">Marketing &amp; Brand Manager</div>
+        <div class="en-yr">2024 – 2026 · Dubai</div>
+      </div>
+      <div class="exp-nav-item" data-panel="1">
+        <div class="en-bar"></div>
+        <div class="en-role">NextSAA Services</div>
+        <div class="en-co">Lead Marketing Manager</div>
+        <div class="en-yr">Jul 2023 – Jan 2024</div>
+      </div>
+      <div class="exp-nav-item" data-panel="2">
+        <div class="en-bar"></div>
+        <div class="en-role">Assurekit Technologies</div>
+        <div class="en-co">Assistant Marketing Manager</div>
+        <div class="en-yr">Jul 2022 – Jun 2023</div>
+      </div>
+      <div class="exp-nav-item" data-panel="3">
+        <div class="en-bar"></div>
+        <div class="en-role">Clazia Events &amp; Expo</div>
+        <div class="en-co">Content Strategist</div>
+        <div class="en-yr">Jan 2022 – Aug 2022</div>
+      </div>
+      <div class="exp-nav-item" data-panel="4">
+        <div class="en-bar"></div>
+        <div class="en-role">Sixthsense Communications</div>
+        <div class="en-co">Brand Operations Coordinator</div>
+        <div class="en-yr">Apr 2021 – Dec 2021</div>
+      </div>
+      <div class="exp-nav-item" data-panel="5">
+        <div class="en-bar"></div>
+        <div class="en-role">BYJU'S</div>
+        <div class="en-co">Student Advisor (Freelance)</div>
+        <div class="en-yr">Sep 2019 – May 2020</div>
+      </div>
+      <div class="exp-nav-item" data-panel="6">
+        <div class="en-bar"></div>
+        <div class="en-role">Midocean Infomedia</div>
+        <div class="en-co">Content Writer</div>
+        <div class="en-yr">Aug 2018 – Jul 2019</div>
+      </div>
+    </div>
+    <div class="exp-panels">
+
+      <div class="exp-panel active" id="panel-0">
+        <div class="ep-header">
+          <p class="ep-period">March 2024 – February 2026</p>
+          <h3 class="ep-role">Marketing &amp; Brand Manager</h3>
+          <p class="ep-company">Sugar Beauty Lounge, Dubai</p>
+        </div>
+        <p class="ep-story">This is the role that put everything together. I owned the brand — strategy, content, campaigns, influencer relationships, in-salon events, digital channels, SMS. The brief was to grow. The result: a beauty lounge that felt like a community, with numbers to match.</p>
+        <div class="ep-achievements">
+          <div class="ep-ach"><span class="big">18%</span><span class="lbl">Sales revenue increase</span></div>
+          <div class="ep-ach"><span class="big">25%</span><span class="lbl">Social engagement growth</span></div>
+          <div class="ep-ach"><span class="big">15%</span><span class="lbl">Conversion lift via SMS</span></div>
+        </div>
+        <div class="ep-tags">
+          <span class="ep-tag">Seasonal Campaigns</span>
+          <span class="ep-tag">SMS Marketing</span>
+          <span class="ep-tag">Influencer Partnerships</span>
+          <span class="ep-tag">Event Marketing</span>
+          <span class="ep-tag">Social Content</span>
+          <span class="ep-tag">Brand Consistency</span>
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-1">
+        <div class="ep-header">
+          <p class="ep-period">July 2023 – January 2024</p>
+          <h3 class="ep-role">Lead Marketing Manager</h3>
+          <p class="ep-company">NextSAA Services</p>
+        </div>
+        <p class="ep-story">Multi-client marketing at pace. I built tailored strategies for clients across industries — managing social, overseeing agency output, running GTM planning, and making sure every brand felt distinct even when being managed from the same desk.</p>
+        <div class="ep-achievements">
+          <div class="ep-ach"><span class="big">20%+</span><span class="lbl">Follower growth across clients</span></div>
+          <div class="ep-ach"><span class="big">25%</span><span class="lbl">Engagement increase</span></div>
+        </div>
+        <div class="ep-tags">
+          <span class="ep-tag">GTM Planning</span>
+          <span class="ep-tag">Agency Management</span>
+          <span class="ep-tag">Brand Identity</span>
+          <span class="ep-tag">PR &amp; Advertising</span>
+          <span class="ep-tag">Social Strategy</span>
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-2">
+        <div class="ep-header">
+          <p class="ep-period">July 2022 – June 2023</p>
+          <h3 class="ep-role">Assistant Marketing Manager</h3>
+          <p class="ep-company">Assurekit Technologies</p>
+        </div>
+        <p class="ep-story">Insurtech is not the most naturally "exciting" category to market. But that's exactly why brand storytelling matters most in dry spaces. I built strategies that made the brand recognisable, drove acquisition, and — crucially — kept existing customers engaged.</p>
+        <div class="ep-achievements">
+          <div class="ep-ach"><span class="big">30%</span><span class="lbl">New customer acquisition</span></div>
+          <div class="ep-ach"><span class="big">60%</span><span class="lbl">Customer retention rate</span></div>
+        </div>
+        <div class="ep-tags">
+          <span class="ep-tag">Brand Messaging</span>
+          <span class="ep-tag">Content Calendar</span>
+          <span class="ep-tag">Digital Marketing</span>
+          <span class="ep-tag">PR &amp; Events</span>
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-3">
+        <div class="ep-header">
+          <p class="ep-period">January 2022 – August 2022</p>
+          <h3 class="ep-role">Content Strategist</h3>
+          <p class="ep-company">Clazia Events &amp; Expo</p>
+        </div>
+        <p class="ep-story">Large-scale events are chaotic by nature. My job was to bring structure to the content side — from digital marketing campaigns to stakeholder coordination — and make sure exhibitors, fabricators, and clients all moved in the same direction.</p>
+        <div class="ep-tags">
+          <span class="ep-tag">Event Content</span>
+          <span class="ep-tag">Lead Acquisition</span>
+          <span class="ep-tag">Stakeholder Management</span>
+          <span class="ep-tag">Analytics</span>
+          <span class="ep-tag">Website &amp; Blog Content</span>
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-4">
+        <div class="ep-header">
+          <p class="ep-period">April 2021 – December 2021</p>
+          <h3 class="ep-role">Brand Operations Coordinator</h3>
+          <p class="ep-company">Sixthsense Communications (InstaReM)</p>
+        </div>
+        <p class="ep-story">The role where an organic content strategy hit 800,000 people in a single month. I worked on InstaReM and supported project operations for HUL, ITC, BYJU'S, and Native Milk — gaining exposure to how some of India's biggest brands think about content and community.</p>
+        <div class="ep-achievements">
+          <div class="ep-ach"><span class="big">800K+</span><span class="lbl">Organic reach in one month</span></div>
+          <div class="ep-ach"><span class="big">40%</span><span class="lbl">Organic user growth</span></div>
+          <div class="ep-ach"><span class="big">55%</span><span class="lbl">Revenue increase</span></div>
+        </div>
+        <div class="ep-tags">
+          <span class="ep-tag">Organic Content Strategy</span>
+          <span class="ep-tag">Multi-brand Operations</span>
+          <span class="ep-tag">HUL · ITC · BYJU'S</span>
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-5">
+        <div class="ep-header">
+          <p class="ep-period">September 2019 – May 2020 · Freelance</p>
+          <h3 class="ep-role">Student Advisor</h3>
+          <p class="ep-company">BYJU'S</p>
+        </div>
+        <p class="ep-story">Before marketing, I was in a room helping students figure out how to learn better. That experience — understanding how people receive information, what makes them engage, what makes them switch off — is probably the most underrated thing on my CV. It made me a better communicator than any textbook did.</p>
+        <div class="ep-tags">
+          <span class="ep-tag">1-on-1 Counseling</span>
+          <span class="ep-tag">Workshop Delivery</span>
+          <span class="ep-tag">Communication</span>
+          <span class="ep-tag">Audience Empathy</span>
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-6">
+        <div class="ep-header">
+          <p class="ep-period">August 2018 – July 2019</p>
+          <h3 class="ep-role">Content Writer</h3>
+          <p class="ep-company">Midocean Infomedia</p>
+        </div>
+        <p class="ep-story">Where it all started. Writing websites, blogs, product descriptions, and brand content from scratch. Learning that words aren't decoration — they're the brand experience itself. Every principle I apply to strategy today was first formed in this role.</p>
+        <div class="ep-tags">
+          <span class="ep-tag">Blog &amp; Web Content</span>
+          <span class="ep-tag">E-commerce Copy</span>
+          <span class="ep-tag">Designer Collaboration</span>
+          <span class="ep-tag">Brand Voice</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="section cream">
+  <div class="s-label reveal">Recognition</div>
+  <h2 class="s-title reveal d1">A few things<br><em>worth noting.</em></h2>
+  <div class="ach-grid reveal d2">
+    <div class="ach-card">
+      <span class="ach-yr">2020</span>
+      <h3 class="ach-h">Jagriti Yatra</h3>
+      <p class="ach-d">Chosen from thousands of applicants nationwide and internationally for one of India's most prestigious entrepreneurial leadership journeys. 15 days. Hundreds of change-makers. One unforgettable experience that changed how I think about business and purpose.</p>
+    </div>
+    <div class="ach-card">
+      <span class="ach-yr">2021</span>
+      <h3 class="ach-h">InstaReM Global Campaign</h3>
+      <p class="ach-d">800,000+ audience reached in August 2021 through purely organic content — no paid amplification. This is the milestone I'm most proud of, because it happened through pure storytelling discipline and strategic distribution, not budget.</p>
+    </div>
+    <div class="ach-card">
+      <span class="ach-yr">MAMI</span>
+      <h3 class="ach-h">Jio MAMI Film Festival</h3>
+      <p class="ach-d">Selected for the Young Critics Team in the India Gold Theme — chosen among 2 lakh students from across India. A recognition of cultural curiosity, critical thinking, and the ability to write with precision and feeling about the art of storytelling.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVE SIDE -->
+<section class="section dark">
+  <div class="s-label reveal">Beyond the Brief</div>
+  <h2 class="s-title reveal d1">The things<br><em>that shape me.</em></h2>
+  <p class="creative-intro reveal d2">"The best marketers are deeply human. They notice things. They feel things. They bring the whole of themselves to the work."</p>
+  <div class="creative-grid reveal d3">
+    <div class="cr-item">
+      <span class="cr-marker">01 · Passion</span>
+      <h3 class="cr-h">Regional Cinema</h3>
+      <p class="cr-d">I've always believed that the most culturally specific stories are actually the most universal. Regional cinema taught me that. It shaped how I think about storytelling in marketing — with specificity, not safety.</p>
+    </div>
+    <div class="cr-item">
+      <span class="cr-marker">02 · Discipline</span>
+      <h3 class="cr-h">Indian Classical Music</h3>
+      <p class="cr-d">Three years of classical vocal training. It taught me about rhythm, restraint, and building to a moment — all things that show up in how I structure campaign narratives and brand storytelling.</p>
+    </div>
+    <div class="cr-item">
+      <span class="cr-marker">03 · Craft</span>
+      <h3 class="cr-h">Photography</h3>
+      <p class="cr-d">The discipline of noticing what others walk past. Photography made me more attuned to light, composition, and the story a single frame can tell — which makes me a better creative director and content brief writer.</p>
+    </div>
+    <div class="cr-item">
+      <span class="cr-marker">04 · Curiosity</span>
+      <h3 class="cr-h">Brand &amp; Campaign Analysis</h3>
+      <p class="cr-d">I collect campaign teardowns for fun. Deconstructing why something worked — or didn't — keeps my strategic thinking honest and helps me avoid the traps that feel safe but rarely move anything.</p>
+    </div>
+    <div class="cr-item">
+      <span class="cr-marker">05 · Perspective</span>
+      <h3 class="cr-h">Travel &amp; Culture</h3>
+      <p class="cr-d">Every city has a brand personality. Every culture has a distinct content language. Traveling keeps me culturally curious and helps me communicate across contexts — which matters more than ever in global marketing.</p>
+    </div>
+    <div class="cr-item">
+      <span class="cr-marker">06 · Voice</span>
+      <h3 class="cr-h">Microfiction &amp; Writing</h3>
+      <p class="cr-d">The discipline of saying everything you need to say in very few words — which is, coincidentally, exactly what good brand copy demands. Brevity is a creative muscle. I work it often.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section white">
+  <div class="s-label reveal">How I Work</div>
+  <h2 class="s-title reveal d1">My process,<br><em>simply put.</em></h2>
+  <div class="approach-wrap">
+    <div class="approach-left reveal d2">
+      <p class="approach-pull">"I don't start with what to post. I start with what the brand actually needs to say."</p>
+      <p>Most marketing problems aren't content problems. They're clarity problems. The brand doesn't know what it stands for, or it knows but isn't saying it in a way that lands.</p>
+      <p>My process starts there — with questions, not templates. Once the clarity is there, the content becomes obvious. The campaigns write themselves. The strategy holds because it's built on something true.</p>
+    </div>
+    <div class="approach-steps reveal d3">
+      <div class="a-step">
+        <span class="a-n">01</span>
+        <div>
+          <h3 class="a-h">Listen before everything</h3>
+          <p class="a-d">I spend the first part of every engagement just understanding. The brand. The audience. What's been tried. What's been avoided. The gaps are usually in that conversation.</p>
+        </div>
+      </div>
+      <div class="a-step">
+        <span class="a-n">02</span>
+        <div>
+          <h3 class="a-h">Find the emotional truth</h3>
+          <p class="a-d">Every brand has a truth people actually connect with. Most brands don't lead with it because it feels risky. That tension is usually where the best work lives.</p>
+        </div>
+      </div>
+      <div class="a-step">
+        <span class="a-n">03</span>
+        <div>
+          <h3 class="a-h">Build for consistency, not virality</h3>
+          <p class="a-d">One viral post is luck. A brand that shows up the same way, with the same voice, across 12 months of content? That's strategy. I build the systems that make consistency possible.</p>
+        </div>
+      </div>
+      <div class="a-step">
+        <span class="a-n">04</span>
+        <div>
+          <h3 class="a-h">Execute and stay in the work</h3>
+          <p class="a-d">I don't hand off and disappear. I stay close to execution — reviewing copy, briefing creative, tracking what's landing and adjusting in real time.</p>
+        </div>
+      </div>
+      <div class="a-step">
+        <span class="a-n">05</span>
+        <div>
+          <h3 class="a-h">Learn from everything</h3>
+          <p class="a-d">Data tells you what happened. Context tells you why. I use Google Analytics and performance data not just to report, but to genuinely understand what the audience is telling us — and evolve accordingly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section dark">
+  <div class="s-label reveal">Testimonials</div>
+  <h2 class="s-title reveal d1">What people<br><em>say.</em></h2>
+  <p class="test-intro reveal d2">Real words from real collaborators — coming soon as I gather them. The placeholders below reflect the kind of feedback I regularly receive.</p>
+  <div class="test-grid reveal d3">
+    <div class="test-card">
+      <div class="test-mark">"</div>
+      <p class="test-quote">Anuradha doesn't just create content — she creates clarity. She helped us understand what we were actually saying as a brand, and then said it better than we ever could have ourselves.</p>
+      <p class="test-name">Client / Founder</p>
+      <p class="test-title">Brand Partner · Coming Soon</p>
+      <div class="test-badge">Placeholder</div>
+    </div>
+    <div class="test-card">
+      <div class="test-mark">"</div>
+      <p class="test-quote">The campaigns she built felt genuinely like us — not like templates with our name dropped in. That's rare. She actually listened, and it showed in every single piece of content.</p>
+      <p class="test-name">Marketing Director</p>
+      <p class="test-title">Beauty Industry · Coming Soon</p>
+      <div class="test-badge">Placeholder</div>
+    </div>
+    <div class="test-card">
+      <div class="test-mark">"</div>
+      <p class="test-quote">I've worked with a lot of marketers who can execute. Anuradha can also think. She comes to the table with a point of view and the data to back it up. That combination is genuinely hard to find.</p>
+      <p class="test-name">Team Lead</p>
+      <p class="test-title">Agency Collaboration · Coming Soon</p>
+      <div class="test-badge">Placeholder</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section cream">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <h2 class="contact-headline">
+        Let's build<br>
+        something<br>
+        <em>real.</em>
+      </h2>
+      <p class="contact-body">If you're building a brand and need someone who gets both the big-picture strategy and the ground-level execution — let's talk. I'm open to brand marketing, content strategy, campaign roles, creative strategy, and partnerships.</p>
+      <a href="mailto:atripathi.content@gmail.com" class="contact-email">atripathi.content@gmail.com</a>
+      <div class="contact-links">
+        <a href="tel:+918356069106" class="contact-link">
+          <span>+91 835 606 9106</span>
+          <span>→</span>
+        </a>
+        <a href="#" class="contact-link">
+          <span>LinkedIn</span>
+          <span>↗</span>
+        </a>
+        <a href="#" class="contact-link">
+          <span>Instagram</span>
+          <span>↗</span>
+        </a>
+        <a href="#" class="contact-link">
+          <span>WhatsApp</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-right reveal d2">
+      <div class="contact-info">
+        <p class="ci-label">Location</p>
+        <p class="ci-val">Bhayander, Mumbai, India</p>
+      </div>
+      <div class="contact-info">
+        <p class="ci-label">Based in</p>
+        <p class="ci-val">Mumbai · Open to Dubai & Global</p>
+      </div>
+      <div class="contact-info">
+        <p class="ci-label">Available for</p>
+        <p class="ci-val">Brand Marketing · Content Strategy · Campaign Roles · Creative Strategy · Partnerships · Brand Communications</p>
+      </div>
+      <div class="contact-info">
+        <p class="ci-label">Education</p>
+        <p class="ci-val">MBA, Marketing Management — NMIMS Mumbai</p>
+      </div>
+      <a href="#" class="dl-btn">↓ Download Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Anuradha Tripathi · Content Creator &amp; Marketer · Mumbai</p>
+  <a href="mailto:atripathi.content@gmail.com">atripathi.content@gmail.com</a>
+</footer>
+
+<script>
+// Custom cursor
+const cur = document.getElementById('cur');
+const curR = document.getElementById('curR');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX - 5 + 'px';
+  cur.style.top = e.clientY - 5 + 'px';
+  setTimeout(() => {
+    curR.style.left = e.clientX - 18 + 'px';
+    curR.style.top = e.clientY - 18 + 'px';
+  }, 80);
+});
+document.querySelectorAll('a, button, .case-item, .exp-nav-item, .skill, .stag').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.transform = 'scale(2.5)'; curR.style.transform = 'scale(1.5)'; });
+  el.addEventListener('mouseleave', () => { cur.style.transform = 'scale(1)'; curR.style.transform = 'scale(1)'; });
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('up'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Experience tabs
+const navItems = document.querySelectorAll('.exp-nav-item');
+const panels = document.querySelectorAll('.exp-panel');
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const idx = item.dataset.panel;
+    navItems.forEach(n => n.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    item.classList.add('active');
+    document.getElementById('panel-' + idx).classList.add('active');
+  });
+});
+
+// Case items toggle (show/hide details)
+document.querySelectorAll('.case-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const details = item.nextElementSibling;
+    if(details && details.classList.contains('case-details')) {
+      const isOpen = details.style.display === 'grid';
+      details.style.display = isOpen ? 'none' : 'grid';
+      item.querySelector('.case-arrow').textContent = isOpen ? '→' : '↓';
+    }
+  });
+});
+// Start all case details hidden except first
+document.querySelectorAll('.case-details').forEach((d, i) => {
+  if(i > 0) d.style.display = 'none';
+});
+document.querySelectorAll('.case-arrow')[0].textContent = '↓';
+</script>
 </body>
 </html>
+
+
+
